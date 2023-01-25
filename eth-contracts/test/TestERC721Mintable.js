@@ -1,6 +1,6 @@
 var ERC721Mintable = artifacts.require('ERC721Mintable');
 
-contract('TestERC721Mintable', accounts => {
+contract('ERC721Mintable', accounts => {
 
     const account_one = accounts[0];
     const account_two = accounts[1];
