@@ -5,6 +5,7 @@ import '@openzeppelin/contracts/utils/Address.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
 import '@openzeppelin/contracts/utils/math/SafeMath.sol';
 import '@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol';
+import '@openzeppelin/contracts/utils/Strings.sol';
 import "./provableAPI.sol";
 
 abstract contract Ownable {
@@ -253,7 +254,7 @@ contract ERC721 is Pausable, ERC165 {
     // TIP: remember the functions to use for Counters. you can refresh yourself with the link above
     function _mint(address to, uint256 tokenId) internal virtual {
         // TODO revert if given tokenId already exists or given address is invalid
-        require(_exists(tokenId), "Token already exists");
+        require(!_exists(tokenId), "Token already exists");
         require(to != address(0), "Invalid address");
   
         // TODO mint tokenId to given address & increase token count of owner
@@ -543,7 +544,7 @@ contract ERC721Metadata is ERC721Enumerable, usingProvable {
     // require the token exists before setting
     function _setTokenURI(uint256 tokenId) internal {
         require(_exists(tokenId), "Token does not exist");
-        _tokenURIs[tokenId] = strConcat(_baseTokenURI, uint2str(tokenId));
+        _tokenURIs[tokenId] = string.concat(_baseTokenURI, Strings.toString(tokenId));
     }
 }
 
@@ -556,9 +557,9 @@ contract ERC721Metadata is ERC721Enumerable, usingProvable {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
-contract CustomERC721Token is ERC721Metadata {
+contract ERC721Mintable is ERC721Metadata {
 
-    constructor() ERC721Metadata("Capstone Token", "CT", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
+    constructor() ERC721Metadata("Real State Token", "RST", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
 
     }
 
