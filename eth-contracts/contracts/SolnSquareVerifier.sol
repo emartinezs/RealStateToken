@@ -14,6 +14,7 @@ contract SolnSquareVerifier is ERC721Mintable {
     struct Solution {
         uint256 index;
         address account;
+        uint256 tokenId;
     }
 
     uint256 solutionIndex = 1;
@@ -25,32 +26,34 @@ contract SolnSquareVerifier is ERC721Mintable {
     mapping(bytes32 => Solution) private solutions;
 
     // TODO Create an event to emit when a solution is added
-    event SolutionAdded(bytes32 solutionKey, address account);
+    event SolutionAdded(bytes32 solutionKey, address account, uint256 tokenId);
 
     constructor(address verifierAddress) {
         verifier = Verifier(verifierAddress);
     }
 
     // TODO Create a function to add the solutions to the array and emit the event
-    function _addSolution(uint[2] memory input) internal {
+    function _addSolution(uint256 tokenId, uint[2] memory input) internal {
         bytes32 solutionKey = keccak256(abi.encodePacked(input));
         solutions[solutionKey] = Solution({
             index: solutionIndex,
-            account: msg.sender
+            account: msg.sender,
+            tokenId: tokenId
         });
-        emit SolutionAdded(solutionKey, msg.sender);
+        solutionIndex++;
+        emit SolutionAdded(solutionKey, msg.sender, tokenId);
     }
 
     // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSupply
-    function mintNFT(address to, uint256 tokenId, Verifier.Proof memory proof, uint[2] memory input) public {
+    function mintToken(uint256 tokenId, Verifier.Proof memory proof, uint[2] memory input) public {
         bytes32 solutionKey = keccak256(abi.encodePacked(input));
-        require(solutions[solutionKey].index != 0, "Solution already used");
+        require(solutions[solutionKey].index == 0, "Solution already used");
         require(verifier.verifyTx(proof, input), "Invalid solution");
 
-        _addSolution(input);
-        super.mint(to, tokenId);
+        _addSolution(tokenId, input);
+        super.mint(msg.sender, tokenId);
     }
 }
   

@@ -161,7 +161,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -174,7 +175,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -193,7 +195,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -217,7 +220,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -230,7 +234,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -243,7 +248,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -262,7 +268,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -363,7 +370,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -376,7 +384,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -395,7 +404,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -419,7 +429,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -438,7 +449,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -451,7 +463,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -17464,10 +17477,10 @@
         347
       ],
       "Buffer": [
-        4266
+        4374
       ],
       "CBOR": [
-        4587
+        4695
       ],
       "Counters": [
         421
@@ -17494,7 +17507,7 @@
         1461
       ],
       "OracleAddrResolverI": [
-        4708
+        4816
       ],
       "Ownable": [
         1856
@@ -17503,7 +17516,7 @@
         1922
       ],
       "ProvableI": [
-        4701
+        4809
       ],
       "SafeMath": [
         1773
@@ -17512,10 +17525,10 @@
         596
       ],
       "solcChecker": [
-        4715
+        4823
       ],
       "usingProvable": [
-        10475
+        10583
       ]
     },
     "id": 2927,
@@ -17600,7 +17613,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 2927,
-        "sourceUnit": 10476,
+        "sourceUnit": 10584,
         "src": "348:27:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -29947,7 +29960,7 @@
                 "20091:13:6"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 10475,
+              "referencedDeclaration": 10583,
               "src": "20091:13:6"
             },
             "id": 2782,
@@ -29962,7 +29975,7 @@
         "id": 2891,
         "linearizedBaseContracts": [
           2891,
-          10475,
+          10583,
           2778,
           2464,
           1972,
@@ -31312,7 +31325,7 @@
         "linearizedBaseContracts": [
           2926,
           2891,
-          10475,
+          10583,
           2778,
           2464,
           1972,
@@ -31697,9 +31710,17 @@
     "name": "solc",
     "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1674747579083": {
+      "events": {},
+      "links": {},
+      "address": "0xd6871803499ba317b73A68a348e99a7d929000c0",
+      "transactionHash": "0xdabb6b30944e9a92d6399d57c501e095aba89ddee31cf23612d4ccecf0acfe47"
+    }
+  },
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-01-25T21:43:06.340Z",
+  "updatedAt": "2023-01-26T15:39:56.466Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {
