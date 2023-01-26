@@ -20,7 +20,7 @@ abstract contract Ownable {
 
     event OwnerTransfered(address oldOwner, address newOwner);
 
-    function getOwner() public view returns(address) {
+    function owner() public view returns(address) {
         return _owner;
     }
 
@@ -57,8 +57,8 @@ abstract contract Pausable is Ownable {
 
     bool private _paused;
 
-    event Paused(address user);
-    event Unpaused(address user);
+    event Paused(address account);
+    event Unpaused(address account);
 
     function setPaused(bool pause) public onlyOwner {
         _paused = pause;
@@ -508,26 +508,26 @@ contract ERC721Metadata is ERC721Enumerable, usingProvable {
      */
 
 
-    constructor (string memory name, string memory symbol, string memory baseTokenURI) {
+    constructor (string memory cname, string memory csymbol, string memory cbaseTokenURI) {
         // TODO: set instance var values
-        _name = name;
-        _symbol = symbol;
-        _baseTokenURI = baseTokenURI;
+        _name = cname;
+        _symbol = csymbol;
+        _baseTokenURI = cbaseTokenURI;
 
         _registerInterface(_INTERFACE_ID_ERC721_METADATA);
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
 
-    function getName() external view returns (string memory) {
+    function name() external view returns (string memory) {
         return _name;
     }
 
-    function getSymbol() external view returns (string memory) {
+    function symbol() external view returns (string memory) {
         return _symbol;
     }
 
-    function getBaseTokenURI() external view returns (string memory) {
+    function baseTokenURI() external view returns (string memory) {
         return _baseTokenURI;
     }
 

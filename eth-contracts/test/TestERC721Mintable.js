@@ -58,7 +58,7 @@ contract('ERC721Mintable', accounts => {
         })
 
         it('should return contract owner', async function () { 
-            let owner = await this.contract.getOwner.call();
+            let owner = await this.contract.owner.call();
             assert.equal(owner, account_one);
         })
 
