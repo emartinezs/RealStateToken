@@ -2,6 +2,9 @@
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
 
+Contract address Goerli: 0xf00F84D1A4Aeff3f3b450c77Fd9fC46fF9Ed0D82
+Opensea: https://testnets.opensea.io/collection/real-state-token-djmckpt39b
+
 # Project Resources
 
 * [Remix - Solidity IDE](https://remix.ethereum.org/)
