@@ -1,5 +1,4 @@
 const SolnSquareVerifier = artifacts.require("SolnSquareVerifier");
-const proof = require("../zokrates/code/square/proof.json");
 
 module.exports = async function(callback) {
     try {
@@ -9,8 +8,8 @@ module.exports = async function(callback) {
         const tokenId = process.argv[4];
         const account = accounts[0];
 
-        await contract.mintToken(tokenId, proof.proof, proof.inputs, {from: account});
-        console.log("Minted token " + tokenId + " for address " + account);
+        let tokenURI = await contract.tokenURI.call(tokenId);
+        console.log(tokenURI);
     } catch (e) {
         callback(e);
         return;
